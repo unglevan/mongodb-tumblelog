@@ -36,6 +36,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tumblelog',
+    'django_mongodb_engine',
+    'djangotoolbox',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,10 +60,14 @@ WSGI_APPLICATION = 'tumblelog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django_mongodb_engine',
+      'NAME': 'my_tumble_log2'
     }
 }
+
+TEMPLATE_DIRS = (
+    os.path.join(os.path.realpath(__file__), '../../templates'),
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/{{ docs_version }}/topics/i18n/
